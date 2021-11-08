@@ -1,7 +1,7 @@
 package com.yuk.miuihome.module
 
-import com.yuk.miuihome.utils.OwnSP
-import com.yuk.miuihome.utils.ktx.setReturnConstant
+import com.yuk.miuihome.utils.OwnSP.ownSP
+import com.yuk.miuihome.utils.ktx.*
 
 class EnableBlurWhenOpenFolder : BaseClassAndMethodCheck {
 
@@ -12,14 +12,13 @@ class EnableBlurWhenOpenFolder : BaseClassAndMethodCheck {
     fun init() {
         runWithChecked {
             checked = true
-            if (OwnSP.ownSP.getBoolean("simpleAnimation", false)
-            ) {
+            if (ownSP.getBoolean("simpleAnimation", false)) {
                 "com.miui.home.launcher.common.BlurUtils".setReturnConstant(
                     "isUserBlurWhenOpenFolder",
                     result = false
                 )
             } else {
-                if (OwnSP.ownSP.getBoolean("blurWhenOpenFolder", false)) {
+                if (ownSP.getBoolean("blurWhenOpenFolder", false)) {
                     "com.miui.home.launcher.common.BlurUtils".setReturnConstant(
                         "isUserBlurWhenOpenFolder",
                         result = true
@@ -29,6 +28,7 @@ class EnableBlurWhenOpenFolder : BaseClassAndMethodCheck {
                         "isUserBlurWhenOpenFolder",
                         result = false
                     )
+
                 }
             }
         }
@@ -37,5 +37,4 @@ class EnableBlurWhenOpenFolder : BaseClassAndMethodCheck {
     override fun classAndMethodList(): ArrayList<String> = arrayListOf(
         "com.miui.home.launcher.common.BlurUtils", "isUserBlurWhenOpenFolder"
     )
-
 }

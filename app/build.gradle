@@ -4,16 +4,15 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdkVersion 31
     buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.yuk.miuihome"
-        minSdk 28
-        targetSdk 31
-        versionCode 4081
-        versionName "4.0.8"
-
+        minSdkVersion 28
+        targetSdkVersion 31
+        versionCode 4132
+        versionName "4.1.3"
     }
 
     buildTypes {
@@ -21,41 +20,54 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'proguard-log.pro'
-            android.applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "MiuiHome_${versionName}.apk"
-                }
-            }
+            proguardFiles 'proguard-rules.pro', 'proguard-log.pro'
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = '1.8'
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name == 'release') {
+                outputFileName = "MiuiHome_${versionName}(${versionCode}).apk"
+            }
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.4'
     }
 
     packagingOptions {
         resources {
             excludes += "META-INF/**"
             excludes += "kotlin/**"
+            excludes += "**.bin"
         }
     }
 }
 
 dependencies {
-    compileOnly 'de.robv.android.xposed:api:82'
-    compileOnly 'androidx.annotation:annotation:1.2.0'
-    implementation 'com.github.kyuubiran:EzXHelper:0.3.8'
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-
     def appCenterSdkVersion = '4.3.1'
+    def composeVersion = '1.1.0-beta02'
+
+    compileOnly "de.robv.android.xposed:api:82"
+    compileOnly "de.robv.android.xposed:api:82:sources"
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.appcompat:appcompat:1.3.1"
+    implementation "androidx.activity:activity-compose:1.4.0"
+    implementation "androidx.compose.material3:material3:1.0.0-alpha01"
+
+    implementation "androidx.compose.ui:ui:${composeVersion}"
+    implementation "androidx.compose.ui:ui-tooling:${composeVersion}"
+    implementation "androidx.compose.animation:animation:${composeVersion}"
     implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
     implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
-
 }

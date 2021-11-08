@@ -17,7 +17,6 @@
     <string name="Description">Modificação para Launcher MIUI</string>
     <string name="Folder">Configurações Pasta</string>
     <string name="HideAppIcon">Esconder Ícone do APP</string>
-    <string name="HideAppTitles">Esconder Nome dos Aplicativos</string>
     <string name="HideStatusBar">Esconder Barra de Status na Tela de Aplicativos Recentes</string>
     <string name="HideTaskViewAppIcon">Esconder Ícone do Aplicativo na Tela de Recentes</string>
     <string name="HideTaskViewCleanUpIcon">Esconder o Botão de Limpar Tudo na Tela de Recentes</string>
@@ -68,7 +67,6 @@
     <string name="WidgetToMinus">Permitir Mover Widgets Clássicos para o \"Assistente\"</string>
     <string name="Yes">Sim</string>
     <string name="EnableIconShadow">Mostrar Sombra do Ícone e Reflexo</string>
-    <string name="res_hooked">Sucesso na injeção de Recursos!</string>
     <string name="SmallWindow">Permitar que todos apps usem a Janela Flutuante</string>
     <string name="LowEndDeviceUseMIUIWidgets">Habilitar novos Widgets em celulares sem suporte</string>
     <string name="RecommendServer">Desativar servidor recomendado</string>
@@ -90,4 +88,6 @@
     <string name="CategoryHideAll">Esconder \"Tudo\" em Categorias de App</string>
     <string name="FolderColumnsCount">Número de colunas em pastas</string>
     <string name="FolderWidth">Use toda a largura da pasta</string>
+    <string name="IconTitleFontSize">Tamanho da fonte dos ícones</string>
+    <string name="CustomRecentText">Personalize a exibição de texto de recentes quando não houver fundo</string>
 </resources>

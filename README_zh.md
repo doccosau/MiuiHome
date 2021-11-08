@@ -20,48 +20,61 @@ __原仓库：[YuKongA/MiuiHome](https://github.com/YuKongA/MiuiHome)__
 
 __新仓库：[1767523953/MiuiHome](https://github.com/1767523953/MiuiHome)__
 
-## 模块涉及内容
+## 模块内容
 
-- [x] 平滑动画.
-- [x] 时钟常显.
-- [x] 搜索框模糊.
-- [x] 后台模糊级别.
-- [x] 手势动画速度.
-- [x] 桌面无限滚动.
-- [x] 后台隐藏状态栏.
-- [x] 后台卡片文字大小.
-- [x] 应用卡片圆角大小.
-- [x] 隐藏桌面应用图标.
-- [x] 隐藏后台应用图标.
-- [x] 隐藏后台清理图标.
-- [x] 隐藏桌面小部件名称.
-- [x] 水波纹应用下载特性.
-- [x] 文件夹打开背景模糊.
-- [x] 打开应用时关闭文件夹.
-- [x] 取消后台壁纸压暗效果.
-- [x] 隐藏后台小窗应用图标.
-- [x] 后台应用图标与名称间距.
-- [x] 强制当前设备为高端设备.
-- [x] 允许将安卓小部件移到负一屏.
-- [x] 允许在安卓小部件页显示MIUI小部件.
+- [x] 平滑动画
+- [x] 时钟常显
+- [x] 双击锁屏
+- [x] 搜索框模糊
+- [x] 后台模糊级别
+- [x] 手势动画速度
+- [x] 桌面无限滚动
+- [x] 后台隐藏状态栏
+- [x] 后台卡片文字大小
+- [x] 应用卡片圆角大小
+- [x] 隐藏桌面应用图标
+- [x] 隐藏后台应用图标
+- [x] 隐藏后台清理图标
+- [x] 改变文件夹的列数
+- [x] 隐藏桌面小部件标题
+- [x] 水波纹应用下载特性
+- [x] 文件夹打开背景模糊
+- [x] 使用整个文件夹空间
+- [x] 打开应用时关闭文件夹
+- [x] 取消后台壁纸压暗效果
+- [x] 隐藏后台小窗应用图标
+- [x] 改变图标标签字体大小
+- [x] 后台应用图标与标题间距
+- [x] 强制当前设备为高端设备
+- [x] 隐藏应用分页中的编辑按钮
+- [x] 支持将搜索框修改为Dock栏
+- [x] 允许将安卓小部件移到负一屏
+- [x] 隐藏应用抽屉模式中的"全部"分页
+- [x] 支持移除非抽屉模式下的页面指示器
+- [x] 允许在安卓小部件页显示MIUI小部件
 - [ ] 更多......
 
-## Credit
+## 引用库
 
-- [androidx.annotation](https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/annotation/annotation)
+- [androidx](https://android.googlesource.com/platform/frameworks/support)
 - [AppCenter](https://github.com/microsoft/appcenter)
-- [BiliRoaming](https://github.com/yujincheng08/BiliRoaming/blob/master/LICENSE)
+- [BiliRoaming](https://github.com/yujincheng08/BiliRoaming)
 - [CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)
 - [FuckCoolapk](https://github.com/ejiaogl/FuckCoolapk)
 - [LSPosed](https://github.com/LSPosed/LSPosed)
-- [MiDock](https://github.com/lamprose/MIDock)
+- [MIDock](https://github.com/lamprose/MIDock)
 - [MIUIDock](https://github.com/ouhoukyo/MIUIDock)
+- [MIUltra](https://github.com/lamprose/MIUltra)
 - [XposedBridge](https://github.com/rovo89/XposedBridge)
 
-## 软件截图
+## 屏幕截图
 
 ![Screenshot](https://github.com/1767523953/MiuiHome/blob/main/Pic/Screenshot.png)
 
-## License
+## 许可证
 
 [AMTPL v1 + GPL-3.0](LICENSE)
+
+## Star 数量统计
+
+[![Stargazers over time](https://starchart.cc/1767523953/MiuiHome.svg)](https://starchart.cc/1767523953/MiuiHome)

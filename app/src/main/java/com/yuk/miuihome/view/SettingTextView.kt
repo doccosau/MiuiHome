@@ -32,20 +32,8 @@ class SettingTextView(context: Context) : TextView(context) {
         }
 
     init {
-        setPadding(
-            dip2px(10),
-            dip2px(7),
-            dip2px(10),
-            dip2px(7)
-        )
+        setPadding(dip2px(10), dip2px(7), dip2px(10), dip2px(7))
         setTextColor(Color.parseColor(color))
-    }
-
-    class Builder(
-        private val mContext: Context = HomeContext.context,
-        private val block: SettingTextView.() -> Unit
-    ) {
-        fun build() = SettingTextView(mContext).apply(block)
     }
 
     class FastBuilder(

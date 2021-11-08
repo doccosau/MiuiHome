@@ -20,8 +20,25 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--repackageclasses "l"
-
+-repackageclasses "余空"
 -obfuscationdictionary ../dict.txt
 -classobfuscationdictionary ../dict.txt
 -packageobfuscationdictionary ../dict.txt
+
+-keep class * implements de.robv.android.xposed.IXposedHookLoadPackage {
+    public void *(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam);
+}
+
+-keep class * implements de.robv.android.xposed.IXposedHookInitPackageResources {
+    public void *(de.robv.android.xposed.callbacks.XC_InitPackageResources$InitPackageResourcesParam);
+}
+
+-keep class * implements de.robv.android.xposed.IXposedHookZygoteInit {
+    public void *(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam);
+}
+
+-keep class com.yuk.miuihome.MainHook { *; }
+
+-keepclassmembers class com.yuk.miuihome.activity.MainActivity {
+    boolean isModuleEnable();
+}
