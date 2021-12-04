@@ -20,9 +20,17 @@ class SetDeviceLevel {
                 "isSupportCompleteAnimation",
                 result = true
             )
+            "com.miui.home.launcher.common.DeviceLevelUtils".setReturnConstant(
+                "isLowLevelOrLiteDevice",
+                result = false
+            )
             "com.miui.home.launcher.DeviceConfig".setReturnConstant(
                 "isDefaultIcon",
                 result = true
+            )
+            "com.miui.home.launcher.DeviceConfig".setReturnConstant(
+                "isMiuiLiteVersion",
+                result = false
             )
         } catch (e: Throwable) {
             LogUtil.e(e)

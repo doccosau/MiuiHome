@@ -2,11 +2,11 @@
 
 __Tiếng Việt 丨 [简体中文](https://github.com/1767523953/MiuiHome/blob/main/README_zh.md)__
 
-![Launcher](https://github.com/1767523953/MiuiHome/blob/main/Pic/Launcher.png)
+![Launcher](https://github.com/1767523953/MiuiHome/blob/main/Pic/MiuiHome.png)
 
 Hook cho Trình khởi chạy MIUI - Xposed
 
-[![Android CI](https://github.com/1767523953/MiuiHome/actions/workflows/main.yml/badge.svg)](https://github.com/1767523953/MiuiHome/actions/workflows/main.yml) [![Stars](https://img.shields.io/github/stars/1767523953/MiuiHome?label=stars)](https://github.com/1767523953/MiuiHome) [![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.yuk.miuihome/total)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases) [![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/com.yuk.miuihome?label=release)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases/latest) [![Chat](https://img.shields.io/badge/Telegram-Chat-blue.svg?logo=telegram)](https://t.me/MiuiHome_Xposed)
+[![Android CI](https://github.com/qqlittleice/MiuiHome/actions/workflows/android.yml/badge.svg)](https://github.com/qqlittleice/MiuiHome/actions/workflows/android.yml) [![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.yuk.miuihome/total)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases) [![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/com.yuk.miuihome?label=release)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases/latest) [![Chat](https://img.shields.io/badge/Telegram-Chat-blue.svg?logo=telegram)](https://t.me/MiuiHome_Xposed)
 
 ## Cách sử dụng:
 
@@ -18,7 +18,7 @@ __Cài đặt mô-đun không có trong APP đính kèm với phần mềm này 
 
 __Old：[YuKongA/MiuiHome](https://github.com/YuKongA/MiuiHome)__
 
-__Now：[1767523953/MiuiHome](https://github.com/1767523953/MiuiHome)__
+__Now：[qqlittleice/MiuiHome](https://github.com/qqlittleice/MiuiHome)__
 
 ## Tính năng mô-đun (Google Translate)
 

@@ -2,11 +2,11 @@
 
 __[English](https://github.com/1767523953/MiuiHome/blob/main/README.md)  丨 简体中文__
 
-![Launcher](https://github.com/1767523953/MiuiHome/blob/main/Pic/Launcher.png)
+![Launcher](https://github.com/1767523953/MiuiHome/blob/main/Pic/MiuiHome.png)
 
 Hook for MIUI Launcher - Xposed
 
-[![Android CI](https://github.com/1767523953/MiuiHome/actions/workflows/main.yml/badge.svg)](https://github.com/1767523953/MiuiHome/actions/workflows/main.yml) [![Stars](https://img.shields.io/github/stars/1767523953/MiuiHome?label=stars)](https://github.com/1767523953/MiuiHome) [![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.yuk.miuihome/total)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases) [![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/com.yuk.miuihome?label=release)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases/latest) [![Chat](https://img.shields.io/badge/Telegram-Chat-blue.svg?logo=telegram)](https://t.me/MiuiHome_Xposed)
+[![Android CI](https://github.com/qqlittleice/MiuiHome/actions/workflows/android.yml/badge.svg)](https://github.com/qqlittleice/MiuiHome/actions/workflows/android.yml) [![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.yuk.miuihome/total)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases) [![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/com.yuk.miuihome?label=release)](https://github.com/Xposed-Modules-Repo/com.yuk.miuihome/releases/latest) [![Chat](https://img.shields.io/badge/Telegram-Chat-blue.svg?logo=telegram)](https://t.me/MiuiHome_Xposed)
 
 ## 如何使用
 
@@ -18,7 +18,7 @@ __模块设置不在本软件附带的APP内!!!请到"设置"-"桌面"-点击"�
 
 __原仓库：[YuKongA/MiuiHome](https://github.com/YuKongA/MiuiHome)__
 
-__新仓库：[1767523953/MiuiHome](https://github.com/1767523953/MiuiHome)__
+__新仓库：[qqlittleice/MiuiHome](https://github.com/qqlittleice/MiuiHome)__
 
 ## 模块内容
 

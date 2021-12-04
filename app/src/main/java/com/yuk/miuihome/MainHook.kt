@@ -192,7 +192,7 @@ class MainHook {
                 addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.OtherFeature), mColor = "#0C84FF", mSize = SettingTextView.text2Size).build())
                 addView(SettingSwitch.FastBuilder(mText = moduleRes.getString(R.string.AlwaysShowStatusBarClock), mKey = "clockGadget").build())
                 addView(SettingSwitch.FastBuilder(mText = moduleRes.getString(R.string.DoubleTap), mKey = "doubleTap").build())
-                if (!ownSP.getBoolean("dockSettings", false) && (AndroidSDK == 30)) {
+                if (!ownSP.getBoolean("dockSettings", false) && (AndroidSDK >= 30)) {
                     addView(SettingSwitch.FastBuilder(mText = moduleRes.getString(R.string.SearchBarBlur), mKey = "searchBarBlur").build())
                 }
                 addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.DockSettings)) { showDockDialog() }.build())
@@ -283,7 +283,7 @@ class MainHook {
                         showDockDialog()
                     }.build())
                     if (ownSP.getBoolean("dockSettings", false)) {
-                        if (AndroidSDK == 30) {
+                        if (AndroidSDK >= 30) {
                             addView(SettingSwitch.FastBuilder(mText = moduleRes.getString(R.string.EnableDockBlur), mKey = "searchBarBlur").build())
                         }
                         if (!XposedInit.hasHookPackageResources) {
@@ -295,7 +295,8 @@ class MainHook {
                         addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockSide), mKey = "dockSide", minValue = 0, maxValue = 100, defValue = 30).build())
                         addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockBottom), mKey = "dockBottom", minValue = 0, maxValue = 150, defValue = 23).build())
                         addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockIconBottom), mKey = "dockIconBottom", minValue = 0, maxValue = 150, defValue = 35).build())
-                        addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockIconTop), mKey = "dockIconTop", minValue = 0, maxValue = 80, defValue = 6).build())
+                        addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockMarginTop), mKey = "dockMarginTop", minValue = 0, maxValue = 100, defValue = 6).build())
+                        addView(SettingSeekBar.FastBuilder(mText = moduleRes.getString(R.string.DockMarginBottom), mKey = "dockMarginBottom", minValue = 0, maxValue = 200, defValue = 110).build())
                     }
                 })
             })
@@ -341,7 +342,7 @@ class MainHook {
                 })
             })
             setPositiveButton(moduleRes.getString(R.string.Save), null)
-            setNeutralButton(moduleRes.getString(R.string.Reset1)) { _, _ -> showModifyReset2() }
+            setNeutralButton(moduleRes.getString(R.string.Reset2)) { _, _ -> showModifyReset2() }
         }
         dialogBuilder.show()
     }
@@ -413,8 +414,8 @@ class MainHook {
                 addView(LinearLayout(HomeContext.activity).apply {
                     orientation = LinearLayout.VERTICAL
                     setPadding(dip2px(10), dip2px(6), dip2px(10), dip2px(6))
-                    addView(SettingTextView.FastBuilder(mText = "「" + moduleRes.getString(R.string.Reset2) + "」", mColor = "#0C84FF", mSize = SettingTextView.text2Size).build())
-                    addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.Tips3)).build())
+                    addView(SettingTextView.FastBuilder(mText = "「" + moduleRes.getString(R.string.Reset) + "」", mColor = "#0C84FF", mSize = SettingTextView.text2Size).build())
+                    addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.Tips1)).build())
                 })
             })
             setNeutralButton(moduleRes.getString(R.string.Yes)) { _, _ ->
@@ -423,8 +424,9 @@ class MainHook {
                 OwnSP.set("dockHeight", 7.9f)
                 OwnSP.set("dockSide", 3f)
                 OwnSP.set("dockBottom", 1.6f)
-                OwnSP.set("dockIconBottom", 2.5f)
-                OwnSP.set("dockIconTop", 0.6f)
+                OwnSP.set("dockIconBottom", 3.5f)
+                OwnSP.set("dockMarginTop", 0.6f)
+                OwnSP.set("dockMarginBottom", 11.0f)
                 thread {
                     LogUtil.toast(moduleRes.getString(R.string.Reboot2))
                     Thread.sleep(1000)
@@ -445,7 +447,7 @@ class MainHook {
                     orientation = LinearLayout.VERTICAL
                     setPadding(dip2px(10), dip2px(6), dip2px(10), dip2px(6))
                     addView(SettingTextView.FastBuilder(mText = "「" + moduleRes.getString(R.string.Reset1) + "」", mColor = "#0C84FF", mSize = SettingTextView.text2Size).build())
-                    addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.Tips2)).build())
+                    addView(SettingTextView.FastBuilder(mText = moduleRes.getString(R.string.Tips3)).build())
                 })
             })
             setNeutralButton(moduleRes.getString(R.string.Yes)) { _, _ ->
@@ -485,7 +487,8 @@ class MainHook {
                 OwnSP.set("dockSide", 3.0f)
                 OwnSP.set("dockBottom", 2.3f)
                 OwnSP.set("dockIconBottom", 3.5f)
-                OwnSP.set("dockIconTop", 0.6f)
+                OwnSP.set("dockMarginTop", 0.6f)
+                OwnSP.set("dockMarginBottom", 11.0f)
                 OwnSP.set("folderColumns", 3f)
                 OwnSP.set("task_horizontal1", 1.0f)
                 OwnSP.set("task_horizontal2", 1.0f)
@@ -520,7 +523,8 @@ class MainHook {
                 OwnSP.set("dockSide", 3.0f)
                 OwnSP.set("dockBottom", 2.3f)
                 OwnSP.set("dockIconBottom", 3.5f)
-                OwnSP.set("dockIconTop", 0.6f)
+                OwnSP.set("dockMarginTop", 0.6f)
+                OwnSP.set("dockMarginBottom", 11.0f)
                 OwnSP.set("folderColumns", 3f)
                 OwnSP.set("task_horizontal1", 1.0f)
                 OwnSP.set("task_horizontal2", 1.0f)

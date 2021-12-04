@@ -2,7 +2,6 @@ package com.yuk.miuihome
 
 import android.app.Application
 import android.content.Context
-import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.content.res.XModuleResources
 import com.microsoft.appcenter.AppCenter
@@ -12,7 +11,6 @@ import com.yuk.miuihome.utils.LogUtil
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import de.robv.android.xposed.XposedHelpers.ClassNotFoundError
 
 class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookInitPackageResources {
 
@@ -24,34 +22,26 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookIni
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         when (lpparam.packageName) {
             Config.packageName -> {
-                XposedHelpers.findAndHookMethod(
-                        "com.yuk.miuihome.activity.MainActivity",
-                        lpparam.classLoader,
-                        "isModuleEnable",
-                        object : XC_MethodHook() {
-                            override fun afterHookedMethod(lpparam: MethodHookParam) {
-                                lpparam.result = true
-                            }
-                        }
-                )
+                XposedHelpers.findAndHookMethod("com.yuk.miuihome.activity.MainActivity", lpparam.classLoader, "isModuleEnable", object : XC_MethodHook() {
+                    override fun afterHookedMethod(lpparam: MethodHookParam) {
+                        lpparam.result = true
+                    }
+                })
             }
             Config.hookPackage -> {
-                XposedHelpers.findAndHookMethod(
-                        Application::class.java,
-                        "attach",
-                        Context::class.java,
-                        object : XC_MethodHook() {
-                            override fun afterHookedMethod(param: MethodHookParam) {
-                                HomeContext.context = param.args[0] as Context
-                                HomeContext.classLoader = HomeContext.context.classLoader
-                                HomeContext.application = param.thisObject as Application
-                                startOnlineLog()
-                                checkAlpha()
-                                checkVersionCode()
-                                checkWidgetLauncher()
-                                MainHook().doHook()
-                            }
-                        })
+                XposedHelpers.findAndHookMethod(Application::class.java, "attach", Context::class.java, object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        HomeContext.context = param.args[0] as Context
+                        HomeContext.classLoader = HomeContext.context.classLoader
+                        HomeContext.application = param.thisObject as Application
+                        CrashRecord.init(HomeContext.context)
+                        startOnlineLog()
+                        checkAlpha()
+                        checkVersionCode()
+                        checkWidgetLauncher()
+                        MainHook().doHook()
+                    }
+                })
             }
             else -> {
                 return
@@ -66,17 +56,11 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookIni
     }
 
     private fun startOnlineLog() {
-        AppCenter.start(
-                HomeContext.application,
-                "fd3fd6d6-bc0d-40d1-bc1b-63b6835f9581",
-                Analytics::class.java,
-                Crashes::class.java
-        )
+        AppCenter.start(HomeContext.application, "fd3fd6d6-bc0d-40d1-bc1b-63b6835f9581", Analytics::class.java, Crashes::class.java)
     }
 
     private fun checkAlpha() {
-        val pkgInfo =
-                HomeContext.context.packageManager.getPackageInfo(HomeContext.context.packageName, 0)
+        val pkgInfo = HomeContext.context.packageManager.getPackageInfo(HomeContext.context.packageName, 0)
         HomeContext.isAlpha = if (!pkgInfo.versionName.contains("RELEASE", ignoreCase = true)) {
             pkgInfo.versionName.contains("ALPHA", ignoreCase = true)
         } else {
@@ -86,9 +70,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookIni
 
     private fun checkVersionCode() {
         try {
-            val packageManager: PackageManager = HomeContext.context.packageManager
-            HomeContext.versionCode =
-                    packageManager.getPackageInfo(HomeContext.context.packageName, 0).longVersionCode
+            HomeContext.versionCode = HomeContext.context.packageManager.getPackageInfo(HomeContext.context.packageName, 0).longVersionCode
         } catch (e: Exception) {
             LogUtil.e(e)
             HomeContext.versionCode = -1L
@@ -106,7 +88,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookIni
                 XposedHelpers.findClass(item, HomeContext.classLoader)
             }
             HomeContext.isWidgetLauncher = true
-        } catch (e: ClassNotFoundError) {
+        } catch (e: XposedHelpers.ClassNotFoundError) {
             HomeContext.isWidgetLauncher = false
         }
     }
